@@ -17,6 +17,9 @@ load_dotenv()
 PATH_CHROME = os.getenv("PATH_CHROME")
 PATH_PROFILE = os.getenv("PATH_PROFILE")
 
+print(PATH_CHROME)
+print(PATH_PROFILE)
+
 
 logging.basicConfig(
     filename='logs/app.log', 
