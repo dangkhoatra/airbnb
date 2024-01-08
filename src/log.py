@@ -27,8 +27,10 @@ def _parse_data(data: str) -> Tuple[int, List[str]]:
         part: list[str] = [i.strip() for i in item.split("##")]
         if len(part) > 2:
             items_listing.append(part[1])
-    last_no: int = int(items[-1].split("##")[0].strip())
-
+    if len(items) >= 1:
+        last_no: int = int(items[-1].split("##")[0].strip())
+    else:
+        last_no = 0
     return last_no, items_listing
 
 
