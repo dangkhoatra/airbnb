@@ -58,3 +58,6 @@ Thumbs.db
 *.swp
 *.swo
 *~
+
+#user_file
+users.json

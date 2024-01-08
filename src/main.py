@@ -16,6 +16,12 @@ logging.basicConfig(
     datefmt='%d-%b-%y %H:%M:%S',
 )
 
+# PATH_CHROME = "C:\src\source\chromedriver-win64\chromedriver.exe"
+PATH_CHROME = "/Users/huanhoang/Downloads/source/chromedriver"
+
+#PATH_PROFILE = "C:/Users/My/AppData/Local/Google/Chrome/User Data/"
+PATH_PROFILE = "Users/huanhoang/Library/Application Support/Google/Chrome/"
+
 LISTING_PAGE = "https://www.airbnb.com/hosting/listings"
 
 
@@ -32,9 +38,9 @@ def main() -> None:
 
         options = webdriver.ChromeOptions()
 
-        service = Service(executable_path="C:\src\source\chromedriver-win64\chromedriver.exe")
+        service = Service(executable_path=PATH_CHROME)
         
-        options.add_argument(f"--user-data-dir=C:/Users/My/AppData/Local/Google/Chrome/User Data/{profile}")
+        options.add_argument(f"--user-data-dir={PATH_PROFILE}{profile}")
 
         driver = webdriver.Chrome(
             service=service,
