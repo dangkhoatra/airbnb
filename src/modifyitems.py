@@ -33,6 +33,7 @@ def click_to_detail_listing(wait):
         (By.XPATH, '//*[@id="listings-table"]/tbody[2]/tr[1]/td[2]/a')
     ))
     list_element.click()
+    print('Done click items')
     logger.info('Click to load items succesful.')
     time.sleep(2)
 
