@@ -2,15 +2,23 @@ from datetime import datetime
 from typing import List, Dict, Any, Tuple
 import os
 
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+log_path = os.getenv("PATH_LOGS")
+
+
 def write_file(account: str, content: str, day: datetime = datetime.today().date()):
 
-    file_name = f"logs/{account}_{day}.txt"
+    file_name = f"{log_path}/{account}_{day}.txt"
     with open(file_name, 'a', encoding="utf-8") as f:
         f.write(f"{content}\n")
 
 def read_file(account: str, day: datetime = datetime.today().date()) -> Tuple[int, List[str]]:
 
-    file_name: str = f"logs/{account}_{day}.txt"
+    file_name: str = f"{log_path}/{account}_{day}.txt"
     print(file_name)
     if os.path.exists(file_name):
         with open(file_name, 'r') as f:
