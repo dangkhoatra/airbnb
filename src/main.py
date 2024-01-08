@@ -6,7 +6,16 @@ import time
 import logging
 from selenium.webdriver.chrome.service import Service
 
+from dotenv import load_dotenv
+import os
+
 from typing import Union
+
+# Load environment variables from .env file
+load_dotenv()
+
+PATH_CHROME = os.getenv("PATH_CHROME")
+PATH_PROFILE = os.getenv("PATH_PROFILE")
 
 
 logging.basicConfig(
@@ -17,10 +26,10 @@ logging.basicConfig(
 )
 
 # PATH_CHROME = "C:\src\source\chromedriver-win64\chromedriver.exe"
-PATH_CHROME = "/Users/huanhoang/Downloads/source/chromedriver"
+# PATH_CHROME = "/Users/huanhoang/Downloads/source/chromedriver"
 
-#PATH_PROFILE = "C:/Users/My/AppData/Local/Google/Chrome/User Data/"
-PATH_PROFILE = "Users/huanhoang/Library/Application Support/Google/Chrome/"
+# #PATH_PROFILE = "C:/Users/My/AppData/Local/Google/Chrome/User Data/"
+# PATH_PROFILE = "Users/huanhoang/Library/Application Support/Google/Chrome/"
 
 LISTING_PAGE = "https://www.airbnb.com/hosting/listings"
 
