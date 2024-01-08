@@ -5,7 +5,7 @@ import os
 def write_file(account: str, content: str, day: datetime = datetime.today().date()):
 
     file_name = f"logs/{account}_{day}.txt"
-    with open(file_name, 'a') as f:
+    with open(file_name, 'a', encoding="utf-8") as f:
         f.write(f"{content}\n")
 
 def read_file(account: str, day: datetime = datetime.today().date()) -> Tuple[int, List[str]]:
