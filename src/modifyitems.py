@@ -28,6 +28,7 @@ def do_modify_items(driver: WebDriver, account: str):
 
 
 def click_to_detail_listing(wait):
+    print('Starting list items')
     list_element = wait.until(EC.element_to_be_clickable(
         (By.XPATH, '//*[@id="listings-table"]/tbody[2]/tr[1]/td[2]/a')
     ))
