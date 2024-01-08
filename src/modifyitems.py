@@ -10,7 +10,12 @@ from sys import platform
 
 import time
 
+from logging_config import configure_logger
+
 from log import write_file, read_file
+
+
+logger = configure_logger()
 
 
 def do_modify_items(driver: WebDriver, account: str):
@@ -27,6 +32,7 @@ def click_to_detail_listing(wait):
         (By.XPATH, '//*[@id="listings-table"]/tbody[2]/tr[1]/td[2]/a')
     ))
     list_element.click()
+    logger.info('Click to load items succesful.')
     time.sleep(2)
 
 
@@ -42,13 +48,11 @@ def load_items_listing(driver: WebDriver, wait: WebDriverWait, account: str):
             )
         )
 
+        logger.info('Get nav paging success ful.', nav_paing)
+
         element_paging = nav_paing.find_element(By.XPATH, './div[1]/div[1]')
 
         first, last, total = parse_text_get_numbers(element_paging.text)
-
-        print(first, last, total)
-
-        print(element_paging.text)
 
         for i in range(1, last - first + 1):
             item = wait.until(EC.element_to_be_clickable((
